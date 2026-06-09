@@ -1,0 +1,422 @@
+/*toggle btn*/
+.aura-button {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    width: 68px;
+    height: 68px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.aura-bubble-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+/*Popup*/
+.Aura-popup {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: fixed;
+    right: 18px;
+    bottom: 98px;
+
+    width: 360px;
+    min-width: 360px;
+    max-width: 360px;
+
+    height: 500px;
+    min-height: 580px;
+    max-height: 580px;
+
+    border-radius: 38px;
+    overflow: hidden;
+
+    z-index: 999999;
+    display: none;
+
+    box-shadow: 0 20px 80px rgba(0, 0, 0, .32);
+}
+
+.aura-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.aura-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 18px 20px 14px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aura-top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aura-orb-wrap {
+    position: relative;
+    margin-top: 2px;
+}
+
+.aura-orb-glow {
+    position: absolute;
+    inset: 0;
+    transform: scale(1.8);
+    border-radius: 999px;
+    filter: blur(75px);
+    opacity: 6;
+}
+
+.aura-orb {
+    position: relative;
+    width: 118px;
+    height: 118px;
+    border-radius: 999px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.aura-title {
+    margin-top: 14px;
+    font-size: 28px;
+    line-height: 1.1;
+    font-weight: 700;
+    text-align: center;
+}
+
+.aura-sub {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.aura-status {
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.aura-wave {
+    margin-top: 8px;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    height: 28px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.aura-wave.active {
+    opacity: 1;
+}
+
+.aura-wave span {
+    width: 5px;
+    border-radius: 999px;
+    animation: wave 1.7s infinite ease-in-out;
+}
+
+.aura-wave span:nth-child(1) {
+    height: 14px;
+    animation-delay: 0s;
+}
+
+.aura-wave span:nth-child(2) {
+    height: 28px;
+    animation-delay: 0.2s;
+}
+
+.aura-wave span:nth-child(3) {
+    height: 16px;
+    animation-delay: 0.4s;
+}
+
+.aura-wave span:nth-child(4) {
+    height: 32px;
+    animation-delay: 0.1s;
+}
+
+.aura-wave span:nth-child(5) {
+    height: 24px;
+    animation-delay: 0.3s;
+}
+
+.aura-wave span:nth-child(6) {
+    height: 18px;
+    animation-delay: 0.5s;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.5);
+    }
+}
+
+.aura-user-text {
+    margin-top: 10px;
+    min-height: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+    font-weight: 600;
+}
+
+.aura-vox-text {
+    margin-top: 2px;
+    min-height: 18px;
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    opacity: .82;
+}
+
+.aura-bottom {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aura-mic {
+    position: relative;
+    z-index: 2;
+
+    width: 74px;
+    height: 74px;
+
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+
+    color: white;
+    font-size: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+
+    /*Smooth Shadow animation*/
+    animation: micFloat 2.5s infinite ease-in-out;
+}
+
+.aura-mic {
+    transform: scale(1.06);
+}
+
+@keyframes micFloat {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.aura-mic-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.theme-dark {
+    background-color: #050816;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.theme-dark .aura-overlay {
+    background: radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 45%);
+}
+
+.theme-dark .aura-orb,
+.theme-dark .aura-orb-glow {
+    background: linear-gradient(to top right, #22d3ee, #a855f7, #ec4899);
+}
+
+.theme-dark .aura-orb-glow {
+    opacity: 0.4;
+}
+
+.theme-dark .aura-mic,
+.theme-dark.aura-button {
+    background: linear-gradient(to top right, #a855f7, #a78bfa);
+    box-shadow: 0 0 60px rgba(168, 85, 247, 0.45);
+}
+
+.theme-dark .aura-wave span {
+    background-color: #34d399;
+}
+
+.theme-dark .aura-status {
+    color: #34d399;
+}
+
+.theme-dark .aura-sub {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Light Theme */
+.theme-light {
+    background: linear-gradient(to bottom right, #ffffff, #f8fafc, #eefeff);
+    color: #081028;
+    border: 1px solid #dbeafe;
+}
+
+.theme-light .aura-overlay {
+    background: radial-gradient(circle at top, rgba(59, 130, 247, 0.14), transparent 45%);
+}
+
+.theme-light .aura-orb,
+.theme-light .aura-orb-glow {
+    background: linear-gradient(to top right, #93c5fd, #67e8f9, #f9a8d4);
+}
+
+.theme-light .aura-orb-glow {
+    opacity: 0.4;
+}
+
+.theme-light .aura-mic,
+.theme-light.aura-button {
+    background: linear-gradient(to top right, #60a5fa, #22d3ee);
+    box-shadow: 0 0 70px rgba(59, 130, 247, 0.35);
+}
+
+.theme-light .aura-wave span {
+    background-color: #3b82f6;
+}
+
+.theme-light .aura-status {
+    color: #3b82f6;
+}
+
+.theme-light .aura-sub {
+    color: #475569;
+}
+
+
+/* Glass Theme */
+.theme-glass {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    color: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.theme-glass .aura-overlay {
+    background: radial-gradient(circle at top, rgba(168, 85, 247, 0.18), transparent 50%);
+}
+
+.theme-glass .aura-orb,
+.theme-glass .aura-orb-glow {
+    background: linear-gradient(to top right, #c084fc, #f472b6, #22d3ee);
+}
+
+.theme-glass .aura-orb-glow {
+    opacity: 0.4;
+}
+
+.theme-glass .aura-mic,
+.theme-glass.aura-button {
+    background: linear-gradient(to top right, #a855f7, #6366f1);
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.3);
+}
+
+.theme-glass .aura-wave span {
+    background-color: #a855f7;
+}
+
+.theme-glass .aura-status {
+    color: #9333ea;
+}
+
+.theme-glass .aura-sub {
+    color: rgba(71, 85, 105, 0.7);
+}
+
+
+/* Neon Theme */
+.theme-neon {
+    background-color: #03120d;
+    color: #ecfdf5;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.theme-neon .aura-overlay {
+    background: radial-gradient(circle at top, rgba(16, 185, 129, 0.18), transparent 45%);
+}
+
+.theme-neon .aura-orb,
+.theme-neon .aura-orb-glow {
+    background: linear-gradient(to top right, #6ee7b7, #4ade80, #22d3ee);
+}
+
+.theme-neon .aura-orb-glow {
+    opacity: 0.4;
+}
+
+.theme-neon .aura-mic,
+.theme-neon.aura-button {
+    background: linear-gradient(135deg, #10b981, #047857);
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3);
+}
+
+.theme-neon .aura-wave span {
+    background-color: #6ee7b7;
+}
+
+.theme-neon .aura-status {
+    color: #6ee7b7;
+}
+
+.theme-neon .aura-sub {
+    color: rgba(209, 250, 229, 0.7);
+}
