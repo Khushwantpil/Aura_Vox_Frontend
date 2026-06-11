@@ -8,33 +8,36 @@ import Billing from './Pages/billing';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/protectedRoute';
 import toast, { Toaster } from 'react-hot-toast';
-export const ServerURL = "https://aura-vox-backend.onrender.com";
-export const CLIENT_URL = "https://aura-vox-frontend.vercel.app"
+import Loader from './components/Loader';
+export const ServerURL = import.meta.env.VITE_SERVER_URL || "https://aura-vox-backend.onrender.com";
+export const CLIENT_URL = import.meta.env.VITE_CLIENT_URL || "https://aura-vox-frontend.vercel.app";
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
         const res = await axios.get(`${ServerURL}/api/user/current-user`, { withCredentials: true });
         setUser(res.data);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching current user:", error);
-        setLoading(false); 
       } 
     };
 
-    fetchCurrentUser();
+    const minLoadTime = new Promise(resolve => setTimeout(resolve, 5000));
+
+    Promise.all([fetchCurrentUser(), minLoadTime]).then(() => {
+      setIsExiting(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 500); // Wait for the fade-out transition to complete
+    });
   }, []);
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f8f8fc]">
-        <div className="w-8 h-8 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"/>
-      </div>
-    );
+    return <Loader isExiting={isExiting} />;
   }
 
   return (

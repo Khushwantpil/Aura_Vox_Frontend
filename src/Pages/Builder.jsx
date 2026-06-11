@@ -8,6 +8,49 @@ import { CLIENT_URL } from '../App';
 const TONES = ["Professional", "Casual", "Friendly", "Formal", "Humorous"];
 const THEMES = ["light", "dark", "glass", "neon"];
 
+const MacTerminalBox = ({ code, title }) => {
+  const [displayed, setDisplayed] = useState("");
+  useEffect(() => {
+    let i = 0;
+    setDisplayed("");
+    const interval = setInterval(() => {
+      setDisplayed(code.slice(0, i + 1));
+      i++;
+      if (i >= code.length) clearInterval(interval);
+    }, 15); // Speed of typing
+    return () => clearInterval(interval);
+  }, [code]);
+
+  return (
+    <div className='rounded-xl overflow-hidden bg-[#0d1117] border border-gray-800 shadow-[0_8px_30px_rgb(0,0,0,0.12)] my-4'>
+      {/* Title Bar */}
+      <div className='flex items-center justify-between px-4 py-3 bg-[#161b22] border-b border-gray-800'>
+        <div className='flex gap-2 items-center'>
+          <div className='w-3 h-3 rounded-full bg-[#ff5f56]'></div>
+          <div className='w-3 h-3 rounded-full bg-[#ffbd2e]'></div>
+          <div className='w-3 h-3 rounded-full bg-[#27c93f]'></div>
+        </div>
+        <div className='text-xs font-mono text-gray-400 font-medium flex items-center gap-2'>
+          <span>&lt;/&gt;</span> {title}
+        </div>
+        <button onClick={() => {
+          navigator.clipboard.writeText(code);
+          toast.success("Copied to clipboard!");
+        }} className='text-gray-400 hover:text-white transition-colors active:scale-95 group'>
+          <FiCopy className="group-hover:text-emerald-400 transition-colors" size={15} />
+        </button>
+      </div>
+      {/* Code Body */}
+      <div className='p-5 text-sm font-mono text-emerald-400 overflow-x-auto custom-scrollbar'>
+        <pre className="whitespace-pre-wrap break-all leading-relaxed">
+          {displayed}
+          <span className="animate-[pulse_0.8s_ease-in-out_infinite] inline-block w-2 h-4 bg-emerald-400 ml-1 align-middle shadow-[0_0_8px_#34d399]" />
+        </pre>
+      </div>
+    </div>
+  );
+};
+
 function Builder({ user, setUser }) {
   console.log("Builder rendered with user:", user);
   const [EditAssistant, setEditAssistant] = useState(!user?.isSetupComplete)
@@ -86,8 +129,7 @@ function Builder({ user, setUser }) {
     ? Math.max(0, Math.ceil((new Date(user.proExpiresAt) - new Date()) / (1000 * 60 * 60 * 24)))
     : 0;
 
-  const embedCode = `<script src = "${CLIENT_URL}/assistant.js" 
-  data-user-id = "${user?._id}"></script>`;
+  const embedCode = `<script src="${CLIENT_URL}/assistant.js" data-user-id="${user?._id}"></script>`;
   return (
     <div className='min-h-screen bg-[#f7f8fc] px-4 py-8'>
       <div className='max-w-4xl mx-auto'>
@@ -138,43 +180,27 @@ function Builder({ user, setUser }) {
             </div>
             <div className='mt-7 '> 
               <div className='mt-4 rounded-2xl bg-amber-50 border border-amber-200 p-4'>
-                <p className='text-sm font-semibold text-amber-900'>
-                  Where to paste this script
-                </p>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="bg-amber-200/60 p-1 rounded text-amber-800 font-mono text-xs font-bold">&lt;/&gt;</div>
+                  <p className='text-md font-bold text-amber-900'>
+                    Where to paste this script
+                  </p>
+                </div>
                 <p className='text-sm text-amber-700 mt-2 leading-2'>
-                  Paste this script before the closing {" "}
-                  <span className='font-semibold'> {"</body>"}</span>
-                  {" "}
-                  tag of your website HTML file.
-                  <br/>
-                  <br/>
-                  Example:
+                  Paste this script right before the closing <span className='bg-amber-200/60 px-1.5 py-0.5 rounded font-mono font-bold text-amber-900'>&lt;/body&gt;</span> tag of your website's HTML file.
                 </p>
 
-                <pre className='mt-3 bg-[#0b1020] text-emerald-300 rounded-xl p-3 text-xs font-mono overflow-x-auto'>
-                  {`<body>
-                    
-    Your Website Content 
-    <script src="${CLIENT_URL}/assistant.js" data-user-id="${user?._id}"></script>
-
-</body>`}
-                </pre>
+                <MacTerminalBox 
+                  title="index.html" 
+                  code={`<body>\n\n    <!-- Your Website Content -->\n    <script src="${CLIENT_URL}/assistant.js" data-user-id="${user?._id}"></script>\n\n</body>`} 
+                />
                  </div>
 
-                 <p className='text-sm font-medium text-[#081028] mb-3 mt-3'> 
+                 <p className='text-sm font-medium text-[#081028] mb-3 mt-6'> 
                     Embed Code
                  </p>
             </div>
-            <div className='relative'>
-              <textarea readOnly value = {embedCode} className='w-full h-28 bg-[#0b1020] text-emerald-400
-              rounded-2xl p-4 text-sm font-mono resize-none outline-none'/>
-              <button  onClick={() =>{
-                navigator.clipboard.writeText(embedCode);
-                toast.success("Copied")
-              }} className='absolute top-4 right-4 w-10 h-10 rounded-xl bg-white flex items-center justify-center'>
-                <FiCopy/>
-              </button>
-               </div>
+            <MacTerminalBox title="script.html" code={embedCode} />
                <button onClick={() => setEditAssistant(true)}
                className='mt-6 w-full sm:w-auto px-8 h-14 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-600
                text-white font-medium hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer'>
