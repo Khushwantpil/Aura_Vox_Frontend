@@ -8,7 +8,7 @@ import Billing from './Pages/billing';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/protectedRoute';
 import toast, { Toaster } from 'react-hot-toast';
-export const ServerURL = "http://localhost:8000";
+export const ServerURL = "https://aura-vox-backend.onrender.com";
 export const CLIENT_URL = "http://localhost:5173"
 function App() {
   const [user, setUser] = useState(null);
