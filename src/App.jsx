@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './components/protectedRoute';
 import toast, { Toaster } from 'react-hot-toast';
 export const ServerURL = "https://aura-vox-backend.onrender.com";
-export const CLIENT_URL = "http://localhost:5173"
+export const CLIENT_URL = "https://aura-vox-frontend.vercel.app"
 function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
