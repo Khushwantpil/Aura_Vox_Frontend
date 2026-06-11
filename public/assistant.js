@@ -9,7 +9,7 @@
     // load css
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "http://localhost:5173/assistant.css";
+    link.href = "https://aura-vox-frontend.vercel.app/assistant.css";
     document.head.appendChild(link);
 
     //Create Pop-up
