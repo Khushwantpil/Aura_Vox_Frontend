@@ -102,7 +102,7 @@
     const loadAssistant = async () => {
         try {
             if (!userId) return;
-            const res = await fetch(`http://localhost:8000/api/assistant/config/${userId}`);
+            const res = await fetch(`https://aura-vox-backend.onrender.com/api/assistant/config/${userId}`);
             const data = await res.json();
             if (data && data.user){
                 assistantConfig = data.user;
@@ -184,7 +184,7 @@
                 try {
                     status.innerText = "Thinking...";
 
-                    const res = await fetch("http://localhost:8000/api/assistant/ask", {
+                    const res = await fetch("https://aura-vox-backend.onrender.com/api/assistant/ask", {
                         method : "POST",
                         headers: {
                             "Content-Type": "application/json"
