@@ -137,7 +137,7 @@
 
     // text-speech 
 
-    const speak = (text) => {
+    const speak = (text, onEndCallback) => {
         window.speechSynthesis.cancel();
 
         //show AI response 
@@ -154,6 +154,7 @@
         speech.onend = () => {
             if(status) status.innerText = "Tap button to speak";
             if(wave) wave.style.opacity = "0";
+            if(onEndCallback) onEndCallback();
         };
         //start speaking 
         window.speechSynthesis.speak(speech);
@@ -199,11 +200,13 @@
 
                     if (data.success){
                         if (data.action == "navigate"){
-                            speak(data.response);
-
-                            setTimeout(() =>{
-                                window.location.href = data.path;
-                            }, 800);
+                            speak(data.response, () => {
+                                if (window.reactNavigate) {
+                                    window.reactNavigate(data.path);
+                                } else {
+                                    window.location.href = data.path;
+                                }
+                            });
                         } else {
                             speak(data.aiResponse);
                         }

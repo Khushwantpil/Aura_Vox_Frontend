@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Home from './Pages/home';
 import Login from './Pages/login';
@@ -15,6 +15,11 @@ function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.reactNavigate = navigate;
+  }, [navigate]);
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
@@ -26,7 +31,7 @@ function App() {
       } 
     };
 
-    const minLoadTime = new Promise(resolve => setTimeout(resolve, 5000));
+    const minLoadTime = new Promise(resolve => setTimeout(resolve, 1000));
 
     Promise.all([fetchCurrentUser(), minLoadTime]).then(() => {
       setIsExiting(true);
