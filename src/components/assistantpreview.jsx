@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const themes = {
   dark: {
     bg: "bg-[#050816]",
-    overlay: "bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_45%)]",
+    overlay: "bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.18),transparent_45%)]",
     orb: "from-cyan-400 via-purple-500 to-pink-500",
     cardBorder: "border border-white/10",
     text: "text-white",
@@ -23,19 +23,19 @@ const themes = {
     sub: "text-[#475569]",
     listening: "text-blue-500",
     wave: "bg-blue-500",
-    button: "from-blue-400 to-cyan-400",
+    button: "from-cyan-600 to-cyan-600",
     micGlow: "shadow-[0_0_70px_rgba(59,130,247,0.35)]",
   },
   glass: {
     bg: "bg-white/30 backdrop-blur-[24px]",
-    overlay: "bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_50%)]",
+    overlay: "bg-[radial-gradient(circle_at_top,rgba(6,182,212,0.18),transparent_50%)]",
     orb: "from-purple-400 via-pink-400 to-cyan-400",
     cardBorder: "border border-white/50",
     text: "text-slate-800",
     sub: "text-slate-600/70",
     listening: "text-purple-600",
     wave: "bg-purple-500",
-    button: "from-purple-500 to-indigo-500",
+    button: "from-[#00C2CB] to-[#00D28E]",
     micGlow: "shadow-[0_0_50px_rgba(168,85,247,0.3)]",
   },
   neon: {
@@ -43,8 +43,8 @@ const themes = {
     overlay: "bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.18),transparent_45%)]",
     orb: "from-emerald-300 via-green-400 to-cyan-400",
     cardBorder: "border border-green-400/30",
-    text: "text-emerald-50",
-    sub: "text-emerald-100/70",
+    text: "text-cyan-50",
+    sub: "text-cyan-100/70",
     listening: "text-emerald-300",
     wave: "bg-emerald-300",
     button: "from-emerald-400 to-green-500",
@@ -53,7 +53,7 @@ const themes = {
 };
 
 function AssistantPreview() {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("neon");
   const current = themes[theme];
 
   return (
@@ -91,22 +91,22 @@ function AssistantPreview() {
           <div className="flex items-center gap-1.5 bg-black/10 backdrop-blur-md p-1.5 rounded-full border border-white/5">
             <button 
               onClick={() => setTheme("dark")} 
-              className={`w-3.5 h-3.5 rounded-full bg-[#050816] border cursor-pointer transition-all ${theme === 'dark' ? 'border-purple-400 scale-110' : 'border-white/10'}`}
+              className={`w-3.5 h-3.5 rounded-full bg-[#050816] border cursor-pointer transition-all ${theme === 'dark' ? 'border-cyan-600 scale-110' : 'border-white/10'}`}
               title="Dark"
             />
             <button 
               onClick={() => setTheme("light")} 
-              className={`w-3.5 h-3.5 rounded-full bg-[#f8fafc] border cursor-pointer transition-all ${theme === 'light' ? 'border-blue-400 scale-110' : 'border-black/20'}`}
+              className={`w-3.5 h-3.5 rounded-full bg-[#f8fafc] border cursor-pointer transition-all ${theme === 'light' ? 'border-cyan-600 scale-110' : 'border-black/20'}`}
               title="Light"
             />
             <button 
               onClick={() => setTheme("glass")} 
-              className={`w-3.5 h-3.5 rounded-full bg-white/30 border cursor-pointer transition-all ${theme === 'glass' ? 'border-cyan-400 scale-110' : 'border-white/10'}`}
+              className={`w-3.5 h-3.5 rounded-full bg-white/30 border cursor-pointer transition-all ${theme === 'glass' ? 'border-cyan-600 scale-110' : 'border-white/10'}`}
               title="Glass"
             />
             <button 
               onClick={() => setTheme("neon")} 
-              className={`w-3.5 h-3.5 rounded-full bg-[#03120d] border cursor-pointer transition-all ${theme === 'neon' ? 'border-emerald-400 scale-110' : 'border-emerald-500/20'}`}
+              className={`w-3.5 h-3.5 rounded-full bg-[#03120d] border cursor-pointer transition-all ${theme === 'neon' ? 'border-cyan-600 scale-110' : 'border-cyan-500/20'}`}
               title="Neon"
             />
           </div>

@@ -44,7 +44,7 @@ const navigate = useNavigate
                     }
                    
                 },
-                theme:{color: "#7c3aed"},
+                theme:{color: "#0891b2"},
             }
             const razorpay = new window.Razorpay(options)
             razorpay.open()
@@ -74,7 +74,7 @@ const navigate = useNavigate
                 <p className='text-sm text-gray-400'> Gemini Status</p>
                 <h2 className={`text-xl font-bold mt-1 capitalize ${
                   user?.geminiStatus === "active"
-                    ? "text-emerald-600"
+                    ? "text-cyan-600"
                     : user?.geminiStatus === "invalid_key"
                     ? "text-red-500"
                     : "text-amber-500"
@@ -123,37 +123,37 @@ const navigate = useNavigate
                         </div>
 
                     {/* Pro Plan */}
-                        <div className='bg-gradient-to-b from-purple-50 to-indigo-50 rounded-3xl p-8 border-2 border-purple-200 shadow-[0_8px_30px_rgb(147,51,234,0.15)] hover:shadow-[0_15px_40px_rgb(147,51,234,0.25)] transition-all duration-300 flex flex-col relative overflow-hidden'>
+                        <div className='bg-gradient-to-b from-cyan-50 to-cyan-50 rounded-3xl p-8 border-2 border-cyan-200 shadow-[0_8px_30px_rgb(8,145,178,0.15)] hover:shadow-[0_15px_40px_rgb(8,145,178,0.25)] transition-all duration-300 flex flex-col relative overflow-hidden'>
                             {/* Premium Badge */}
-                            <div className="absolute top-6 right-6 bg-purple-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                            <div className="absolute top-6 right-6 bg-cyan-600 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
                                 MOST POPULAR
                             </div>
 
-                            <h2 className='text-xl font-semibold text-purple-600 tracking-wide uppercase text-sm'>Pro Plan</h2>
+                            <h2 className='text-xl font-semibold text-cyan-600 tracking-wide uppercase text-sm'>Pro Plan</h2>
                             <div className='flex items-baseline mt-4'>
-                                <h3 className='text-5xl font-extrabold text-indigo-900'>₹10</h3>
-                                <span className='text-indigo-900/60 font-medium ml-2'>/ 3 months</span>
+                                <h3 className='text-5xl font-extrabold text-cyan-900'>₹10</h3>
+                                <span className='text-cyan-900/60 font-medium ml-2'>/ 3 months</span>
                             </div>
                             
-                            <ul className='mt-8 space-y-5 text-indigo-900/80 flex-grow font-medium'>
+                            <ul className='mt-8 space-y-5 text-cyan-900/80 flex-grow font-medium'>
                                 <li className="flex items-center gap-3">
-                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
                                     Unlimited AI messages
                                 </li>
                                 <li className="flex items-center gap-3">
-                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
                                     Advanced AI logic
                                 </li>
                                 <li className="flex items-center gap-3">
-                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
                                     Priority email support
                                 </li>
                                 <li className="flex items-center gap-3">
-                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
                                     Unlimited Navigation
                                 </li>     
                                 <li className="flex items-center gap-3">
-                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
+                                    <div className="bg-white p-1.5 rounded-full shadow-sm"><svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"></path></svg></div>
                                     Personalized Setup
                                 </li>                         
                             </ul>
@@ -163,8 +163,8 @@ const navigate = useNavigate
                                 disabled={user?.plan === "pro"} 
                                 className={`mt-8 h-14 w-full rounded-2xl font-bold tracking-wide transition-all duration-300 ${
                                     user?.plan === "pro"
-                                    ? "bg-purple-200 text-purple-600 cursor-default"
-                                    :"bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg shadow-purple-500/40 hover:shadow-purple-500/60 hover:scale-[1.02] active:scale-95 cursor-pointer"
+                                    ? "bg-cyan-200 text-cyan-600 cursor-default"
+                                    :"bg-gradient-to-r from-[#00C2CB] to-[#00D28E] text-white shadow-lg shadow-purple-/ hover:shadow-purple-/ hover:scale-[1.02] active:scale-95 cursor-pointer"
                                 }`}>
                                 {user?.plan === "pro" ? "Active Plan" : "Upgrade to Pro"}
                             </button>

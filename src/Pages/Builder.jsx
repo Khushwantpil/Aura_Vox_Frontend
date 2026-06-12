@@ -38,15 +38,15 @@ const MacTerminalBox = ({ code, title, hideCopy }) => {
             navigator.clipboard.writeText(code);
             toast.success("Copied to clipboard!");
           }} className='text-gray-400 hover:text-white transition-colors active:scale-95 group'>
-            <FiCopy className="group-hover:text-emerald-400 transition-colors" size={15} />
+            <FiCopy className="group-hover:text-cyan-600 transition-colors" size={15} />
           </button>
         )}
       </div>
       {/* Code Body */}
-      <div className='p-5 text-sm font-mono text-emerald-400 overflow-x-auto custom-scrollbar'>
+      <div className='p-5 text-sm font-mono text-cyan-600 overflow-x-auto custom-scrollbar'>
         <pre className="whitespace-pre-wrap break-all leading-relaxed">
           {displayed}
-          <span className="animate-[pulse_0.8s_ease-in-out_infinite] inline-block w-2 h-4 bg-emerald-400 ml-1 align-middle shadow-[0_0_8px_#34d399]" />
+          <span className="animate-[pulse_0.8s_ease-in-out_infinite] inline-block w-2 h-4 bg-cyan-600 ml-1 align-middle shadow-[0_0_8px_#34d399]" />
         </pre>
       </div>
     </div>
@@ -163,7 +163,7 @@ function Builder({ user, setUser }) {
                 <p className='text-sm text-gray-400'> Gemini Status</p>
                 <h2 className={`text-xl font-bold mt-1 capitalize ${
                   user?.geminiStatus === "active"
-                    ? "text-emerald-600"
+                    ? "text-cyan-600"
                     : user?.geminiStatus === "invalid_key"
                     ? "text-red-500"
                     : "text-amber-500"
@@ -205,7 +205,7 @@ function Builder({ user, setUser }) {
             </div>
             <MacTerminalBox title="script.html" code={embedCode} />
                <button onClick={() => setEditAssistant(true)}
-               className='mt-6 w-full sm:w-auto px-8 h-14 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-600
+               className='mt-6 w-full sm:w-auto px-8 h-14 rounded-2xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E]
                text-white font-medium hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer'>
                   Edit Assistant
                </button>
@@ -253,7 +253,7 @@ function Builder({ user, setUser }) {
                 {THEMES.map((item) => (
                   <button key={item} onClick={() => settheme(item)}
                     className={`py-3 rounded-2xl border-2 capitalize ${theme === item
-                      ? "border-purple-500 bg-purple-50 text-purple-700"
+                      ? "border-cyan-500 bg-cyan-50 text-cyan-700"
                       : "border-gray-200"}`}>
                     {item}
                   </button>
@@ -267,7 +267,7 @@ function Builder({ user, setUser }) {
                 {TONES.map((item) => (
                   <button key={item} onClick={() => settone(item)}
                     className={`py-3 rounded-2xl border-2 capitalize ${tone === item
-                      ? "border-purple-500 bg-purple-50 text-purple-700"
+                      ? "border-cyan-500 bg-cyan-50 text-cyan-700"
                       : "border-gray-200"}`}>
                     {item}
                   </button>
@@ -285,7 +285,7 @@ function Builder({ user, setUser }) {
               </div>
               <a href="https://aistudio.google.com/app/apikey" target="_blank"
               rel = "noopener noreferrer"
-              className='px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-sm 
+              className='px-4 py-2 rounded-xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E] text-white text-sm 
               font-medium hover:scale-[1.02] transition-all cursor-pointer'> Get API KEY</a>
             </div>
             <input type = "password" 
@@ -304,7 +304,7 @@ function Builder({ user, setUser }) {
                 <p className='text-sm text-gray-400'> Assistant Can Redirect Users</p>             
             </div>
 <button onClick = {addPage} className='flex items-center gap-2 px-4 py-2 
-rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-sm'>
+rounded-xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E] text-white text-sm'>
   <FiPlus/> Add
 </button>
           </div>
@@ -348,7 +348,7 @@ rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white text-sm'>
         !businessDescription||
         !tone||
         !theme||
-        !geminiApiKey} className='w-full h-14 rounded-2xl bg-gradient-to-r from-purple-500 to-cyan-500
+        !geminiApiKey} className='w-full h-14 rounded-2xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E]
         text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed'>
           {
             loading ? "Saving..." : user.isSetupComplete ? "Update Assistant" : "Save Assistant "

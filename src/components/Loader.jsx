@@ -38,8 +38,8 @@ const Loader = ({ isExiting }) => {
   return (
   <div className={`w-full h-full min-h-screen flex flex-col items-center justify-center bg-[#f8fafc] relative overflow-hidden transition-all duration-[800ms] origin-center ${isExiting ? 'scale-[1.5] opacity-0 pointer-events-none' : 'scale-100 opacity-100'}`} style={{ transitionTimingFunction: isExiting ? 'cubic-bezier(0.4, 0, 0.2, 1)' : 'ease-in-out' }}>
     {/* Soft glowing background orbs */}
-    <div className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-300/30 blur-[100px] rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
-    <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-cyan-300/30 blur-[100px] rounded-full animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+    <div className="absolute top-[-10%] left-[-5%] w-[400px] h-[400px] bg-cyan-500/30 blur-[100px] rounded-full animate-pulse" style={{ animationDuration: '6s' }} />
+    <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-cyan-500/30 blur-[100px] rounded-full animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }} />
     
     {/* Central AI Orb & Rings */}
     <div className="relative z-10 flex items-center justify-center w-40 h-40 mb-16">
@@ -49,7 +49,7 @@ const Loader = ({ isExiting }) => {
         {[...Array(5)].map((_, i) => (
           <div 
             key={i}
-            className="absolute w-24 h-24 rounded-full border border-cyan-400/30"
+            className="absolute w-24 h-24 rounded-full border border-cyan-600/30"
             style={{
               animation: `ripple 4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite`,
               animationDelay: `${i * 0.8}s`,
@@ -58,14 +58,14 @@ const Loader = ({ isExiting }) => {
         ))}
       </div>
       {/* Outer dashed spinning ring */}
-      <div className="absolute inset-[-20px] border-2 border-dashed border-purple-300/40 rounded-full animate-spin" style={{ animationDuration: '15s' }} />
+      <div className="absolute inset-[-20px] border-2 border-dashed border-cyan-500/40 rounded-full animate-spin" style={{ animationDuration: '15s' }} />
       {/* Inner solid fast ring */}
-      <div className="absolute inset-[-5px] border-2 border-transparent border-t-cyan-400 border-b-purple-500 rounded-full animate-spin" style={{ animationDuration: '3s', animationDirection: 'reverse' }} />
+      <div className="absolute inset-[-5px] border-2 border-transparent border-t-cyan- border-b-purple-500 rounded-full animate-spin" style={{ animationDuration: '3s', animationDirection: 'reverse' }} />
       {/* Pulse base */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-400 to-cyan-400 opacity-20 blur-2xl animate-pulse" style={{ animationDuration: '3s' }} />
+      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-600 to-purple-400 opacity-20 blur-2xl animate-pulse" style={{ animationDuration: '3s' }} />
       
       {/* Core Glowing Orb with slight vibration */}
-      <div className="relative w-24 h-24 rounded-full bg-gradient-to-tr from-purple-500 to-cyan-500 shadow-[0_15px_50px_rgba(168,85,247,0.5)] flex items-center justify-center overflow-hidden animate-[vibrate_0.3s_linear_infinite]">
+      <div className="relative w-24 h-24 rounded-full bg-gradient-to-tr from-[#00C2CB] to-[#00D28E] shadow-[0_15px_50px_rgba(168,85,247,0.5)] flex items-center justify-center overflow-hidden animate-[vibrate_0.3s_linear_infinite]">
         {/* Scanning laser effect */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent w-full h-[200%] animate-[scan_2s_linear_infinite]" />
         
@@ -95,7 +95,7 @@ const Loader = ({ isExiting }) => {
            return (
              <div 
                key={i}
-               className={`flex-1 rounded-full transition-all duration-300 ${isFilled ? 'bg-gradient-to-t from-purple-500 to-cyan-400' : 'bg-gray-200'}`}
+               className={`flex-1 rounded-full transition-all duration-300 ${isFilled ? 'bg-gradient-to-t from-[#00C2CB] to-[#00D28E]' : 'bg-gray-200'}`}
                style={{
                  height: `${h}%`,
                  opacity: isFilled ? 1 : 0.4,
@@ -108,7 +108,7 @@ const Loader = ({ isExiting }) => {
       </div>
       
       <h2 className="text-2xl font-bold text-[#081028] tracking-tight text-center mt-10">
-        Tuning your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">assistant</span>
+        Tuning your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-purple-500">assistant</span>
       </h2>
     </div>
 

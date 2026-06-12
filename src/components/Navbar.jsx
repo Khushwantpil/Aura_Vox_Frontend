@@ -28,24 +28,23 @@ const Navbar = ({ user, setUser }) => {
         <div onClick={() => navigate('/')} className="flex items-center gap-2.5 cursor-pointer">
           <img src={logo} alt="Logo" className="h-12 w-auto object-contain" />
           <h1 className="font-bold text-xl text-gray-700 leading-none">
-            Aura <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-500">Vox</span>
+            Aura <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-purple-500">Vox</span>
           </h1>
         </div>
 
-        {/* Navigation Controls */}
+        {/* Action Buttons & Profile (Desktop) */}
         {user && (
-          <div className="flex items-center gap-4">
-            {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-2 bg-white/50 p-1 rounded-2xl border border-orange-100 shadow-sm backdrop-blur-sm">
               <button
                 onClick={() => navigate('/builder')}
-                className="px-4 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-sm font-medium shadow-md hover:scale-[1.02] transition-all cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E] text-white text-sm font-medium shadow-md hover:scale-[1.02] transition-all cursor-pointer"
               >
                 Builder
               </button>
               <button
                 onClick={() => navigate('/billing')}
-                className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-500 text-white text-sm font-medium shadow-md hover:scale-[1.02] transition-all cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E] text-white text-sm font-medium shadow-md hover:scale-[1.02] transition-all cursor-pointer"
               >
                 Billing
               </button>
@@ -55,7 +54,7 @@ const Navbar = ({ user, setUser }) => {
             <div className="hidden md:flex items-center gap-3 px-3 py-1.5 rounded-2xl bg-white border border-orange-100 shadow-sm">
               <div
                 title={user.email}
-                className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold text-sm flex-shrink-0 cursor-pointer transition-all hover:opacity-95"
+                className="w-8 h-8 rounded-full bg-gradient-to-r from-[#00C2CB] to-[#00D28E] flex items-center justify-center text-white font-bold text-sm flex-shrink-0 cursor-pointer transition-all hover:opacity-95"
               >
                 {(user.username || user.email || 'U').trim().charAt(0).toUpperCase()}
               </div>
@@ -77,7 +76,7 @@ const Navbar = ({ user, setUser }) => {
         {user && (
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-gray-600 hover:text-purple-600 transition-colors cursor-pointer"
+            className="md:hidden text-gray-600 hover:text-cyan-600 transition-colors cursor-pointer"
           >
             {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
@@ -89,7 +88,7 @@ const Navbar = ({ user, setUser }) => {
         <div className="md:hidden px-4 pt-2 pb-4 bg-white border-t border-orange-100 flex flex-col gap-4">
           {/* User Profile Header in Mobile Drawer */}
           <div className="flex items-center gap-3 py-3 border-b border-orange-100">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-cyan-500 flex items-center justify-center text-white font-bold text-base flex-shrink-0">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#00C2CB] to-[#00D28E] flex items-center justify-center text-white font-bold text-base flex-shrink-0">
               {(user.username || user.email || 'U').trim().charAt(0).toUpperCase()}
             </div>
             <div className="flex flex-col min-w-0">
@@ -109,7 +108,7 @@ const Navbar = ({ user, setUser }) => {
                 navigate('/builder');
                 setMenuOpen(false);
               }}
-              className="w-full text-left px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 text-white text-sm font-medium shadow-md active:scale-[0.98] transition-all cursor-pointer"
+              className="w-full text-left px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E] text-white text-sm font-medium shadow-md active:scale-[0.98] transition-all cursor-pointer"
             >
               Builder
             </button>
@@ -118,7 +117,7 @@ const Navbar = ({ user, setUser }) => {
                 navigate('/billing');
                 setMenuOpen(false);
               }}
-              className="w-full text-left px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-500 text-white text-sm font-medium shadow-md active:scale-[0.98] transition-all cursor-pointer"
+              className="w-full text-left px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#00C2CB] to-[#00D28E] text-white text-sm font-medium shadow-md active:scale-[0.98] transition-all cursor-pointer"
             >
               Billing
             </button>
