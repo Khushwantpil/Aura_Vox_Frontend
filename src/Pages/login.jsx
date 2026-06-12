@@ -7,7 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
-export const ServerURL = import.meta.env.VITE_SERVER_URL || "http://localhost:8000";
+export const ServerURL = import.meta.env.VITE_SERVER_URL || "https://aura-vox-backend.onrender.com";
 function Login({ setUser }) {
   const navigate = useNavigate();
   const Features = [
