@@ -24,7 +24,7 @@ function Login({ setUser }) {
     {
       icon: <HiOutlineCodeBracket />,
       title: "Easy Integration",
-      Description: "Seamlessly integrates with any website using one script tag." 
+      Description: "Seamlessly integrates with any website using one script tag."
     },
     {
       icon: <HiOutlineBolt />,
@@ -33,23 +33,23 @@ function Login({ setUser }) {
     }
   ];
 
-const handleLogin = async() => {
-  console.log("Google login button clicked!");
-  try {
-    console.log("Firebase Auth configuration:", { auth, provider });
-    const result = await signInWithPopup(auth, provider);
-    console.log("Firebase signInWithPopup result:", result);
-    const {displayName, email} = result.user;
-    console.log("Extracted user info:", { displayName, email });
-    const res = await axios.post(ServerURL + "/api/auth/google", {name: displayName, email}, {withCredentials: true});
-    setUser(res.data.user);
-    toast.success("Login successful!");
-    navigate("/");
-  } catch (error) {
-    console.error("Login handler caught error:", error);
-    toast.error("Login failed. Please try again.");
+  const handleLogin = async () => {
+    console.log("Google login button clicked!");
+    try {
+      console.log("Firebase Auth configuration:", { auth, provider });
+      const result = await signInWithPopup(auth, provider);
+      console.log("Firebase signInWithPopup result:", result);
+      const { displayName, email } = result.user;
+      console.log("Extracted user info:", { displayName, email });
+      const res = await axios.post(ServerURL + "/api/auth/google", { name: displayName, email }, { withCredentials: true });
+      setUser(res.data.user);
+      toast.success("Login successful!");
+      navigate("/");
+    } catch (error) {
+      console.error("Login handler caught error:", error);
+      toast.error("Login failed. Please try again.");
+    }
   }
-}
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-cyan-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-16 lg:py-24">
@@ -73,7 +73,7 @@ const handleLogin = async() => {
             <button onClick={handleLogin} className="mt-10 h-16 px-8 rounded-2xl
             bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold flex items-center
             gap-4 shadow-[0_20px_80px_rgba(139,92,246,0.3)] hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-              <FcGoogle className="text-3xl bg-white rounded-full"/>
+              <FcGoogle className="text-3xl bg-white rounded-full" />
               Continue with Google
             </button>
             <p className="mt-4 text-sm text-[#64748b]">
@@ -84,7 +84,7 @@ const handleLogin = async() => {
           <div className="relative">
             {/* Background Blur Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-purple-200/50 to-cyan-200/50 blur-[120px] pointer-events-none" />
-            
+
             {/* Features Card */}
             <div className="relative rounded-[40px] border border-black/5 bg-white shadow-[0_20px_80px_rgba(0,0,0,0.06)] p-8 overflow-hidden">
               <div className="flex items-center justify-between mb-8">
@@ -95,11 +95,11 @@ const handleLogin = async() => {
                   <img src={logo} alt="logo" className="w-full h-full object-contain scale-[2.1]" />
                 </div>
               </div>
- 
+
               <div className="space-y-6">
                 {Features.map((item, index) => (
                   <div key={index} className="flex items-start gap-5 p-5 rounded-2xl border-black/5 bg-[#f8fafc]">
- 
+
                     <div className="min-w-[60px] h-[60px] rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-500  text-white flex items-center justify-center 
                     shadow-[0_10px_30px_rgba(139,92,246,0.20)]">
                       {item.icon}

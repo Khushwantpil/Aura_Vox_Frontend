@@ -28,7 +28,7 @@ function App() {
         setUser(res.data);
       } catch (error) {
         console.error("Error fetching current user:", error);
-      } 
+      }
     };
 
     const minLoadTime = new Promise(resolve => setTimeout(resolve, 1000));
@@ -47,10 +47,10 @@ function App() {
 
   return (
     <>
-      <Toaster position="top-right"/>
+      <Toaster position="top-right" />
       <Routes>
         <Route path='/login' element={<Login setUser={setUser} />} />
-        
+
         <Route
           path='/*'
           element={

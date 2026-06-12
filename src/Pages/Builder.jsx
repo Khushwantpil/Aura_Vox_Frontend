@@ -8,7 +8,7 @@ import { CLIENT_URL } from '../App';
 const TONES = ["Professional", "Casual", "Friendly", "Formal", "Humorous"];
 const THEMES = ["light", "dark", "glass", "neon"];
 
-const MacTerminalBox = ({ code, title }) => {
+const MacTerminalBox = ({ code, title, hideCopy }) => {
   const [displayed, setDisplayed] = useState("");
   useEffect(() => {
     let i = 0;
@@ -33,12 +33,14 @@ const MacTerminalBox = ({ code, title }) => {
         <div className='text-xs font-mono text-gray-400 font-medium flex items-center gap-2'>
           <span>&lt;/&gt;</span> {title}
         </div>
-        <button onClick={() => {
-          navigator.clipboard.writeText(code);
-          toast.success("Copied to clipboard!");
-        }} className='text-gray-400 hover:text-white transition-colors active:scale-95 group'>
-          <FiCopy className="group-hover:text-emerald-400 transition-colors" size={15} />
-        </button>
+        {!hideCopy && (
+          <button onClick={() => {
+            navigator.clipboard.writeText(code);
+            toast.success("Copied to clipboard!");
+          }} className='text-gray-400 hover:text-white transition-colors active:scale-95 group'>
+            <FiCopy className="group-hover:text-emerald-400 transition-colors" size={15} />
+          </button>
+        )}
       </div>
       {/* Code Body */}
       <div className='p-5 text-sm font-mono text-emerald-400 overflow-x-auto custom-scrollbar'>
@@ -186,12 +188,13 @@ function Builder({ user, setUser }) {
                     Where to paste this script
                   </p>
                 </div>
-                <p className='text-sm text-amber-700 mt-2 leading-2'>
+                <p className='text-sm text-amber-700 mt-2 leading-relaxed'>
                   Paste this script right before the closing <span className='bg-amber-200/60 px-1.5 py-0.5 rounded font-mono font-bold text-amber-900'>&lt;/body&gt;</span> tag of your website's HTML file.
                 </p>
 
                 <MacTerminalBox 
                   title="index.html" 
+                  hideCopy={true}
                   code={`<body>\n\n    <!-- Your Website Content -->\n    <script src="${CLIENT_URL}/assistant.js" data-user-id="${user?._id}"></script>\n\n</body>`} 
                 />
                  </div>
